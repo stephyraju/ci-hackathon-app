@@ -1,3 +1,4 @@
 from django.contrib import admin
+from teaminfo.models import Hackteam
 
-# Register your models here.
+admin.site.register(Hackteam)
