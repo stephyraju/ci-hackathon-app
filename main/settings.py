@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     "profiles",
     "resources",
     "submissions",
+    "teams"
 ]
 
 MIDDLEWARE = [
