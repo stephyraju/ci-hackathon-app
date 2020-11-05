@@ -1,21 +1,39 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block content %}
 
-<div class="col-12 text-center mb-3">
-    <h1>Hackathone Name</h1>
-    <hr class="divider-orange w-25 mt-4 d">
+{% comment %} <div class ="view-allteam row my-4"> {% endcomment %}
+<div class "container-fluid team-header">
+	{% for hackathon in hackathon %}
+	<div class="row">
+		<div class="col-12 text-center mb-3">
+			<h1 class="text-center pb-5 pt-5 team-title">Meet the Team!</h1>
+			<h2 class="text-center mb-5 hack-name"> {{ hackathon }} </h2>
+			{% endfor %}
+		</div>
+	</div>
 </div>
-<div class="card border-dark mb-3" style="max-width: 18rem;">
-    <div class="card-header">Team#1</div>
-    <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">Name members</th>
-        </tr>
-    </thead>
-    </table>
-  </div>
+<div class "container-fluid">
+	<div class="card-group">
+		<div class="row d-flex justify-content-center card-body">
+			{% for teams in teams %}
+			<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+				<div class="card border-dark mb-3 text-center">
+					<h3 class="card-header">{{ teams.team_name }}</h3>
+					{% comment %} <p class=text-muted">{{ teams.team_description }}<p> {% endcomment %}
+							{% comment %} <span>{{ teams.image_url }}</span> {% endcomment %}
+							<h4 class="text-center mb-5 pt-5">Participants</h4>
+							{% for team_members in team_members %}
+							<ul class="list-group border-0">
+								<li class="list-group-item ">{{ team_members }}</li>
+							</ul>
+							{% comment %} <p class="text-left">{{ team_members }}</p> {% endcomment %}
+							{% endfor %}
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>	
 
 {% endblock %}
